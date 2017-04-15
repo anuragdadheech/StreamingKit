@@ -335,7 +335,7 @@
         if (seekStart == 0)
         {
             id value = [httpHeaders objectForKey:@"Content-Length"] ?: [httpHeaders objectForKey:@"content-length"];
-            
+            value = value ?: [httpHeaders objectForKey:@"X-Content-Length"];
             fileLength = (SInt64)[value longLongValue];
         }
         
